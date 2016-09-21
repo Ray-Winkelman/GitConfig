@@ -1,5 +1,5 @@
 #!/bin/sh
 
-for L in $(find . -name "*OracleDatabase.sql"); do echo $L | xargs git checkout; done;
-for L in $(find . -name "*RetinaCS.PostUpgrade.RecreateProcs.sql"); do echo $L | xargs git checkout; done;
-for L in $(find . -name "*RetinaCS.Database.SqlServer_Create.sql"); do echo $L | xargs git checkout; done;
+for L in $(find . -name "*.dll"); do echo $L | xargs git checkout; done;
+for L in $(find . -name "*.exe"); do echo $L | xargs git checkout; done;
+for L in $(find . -name "*.pdb"); do echo $L | xargs git checkout; done;
