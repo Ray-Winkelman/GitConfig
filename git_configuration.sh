@@ -30,12 +30,13 @@ git config --system core.preloadindex true
 git config --system core.ignorecase false
 git config --system advice.pushNonFastForward false
 git config --system advice.statusHints false
+git config --system diff.algorithm patience
 git config --system diff.mnemonicprefix true
 git config --system diff.renames copies
 git config --system push.default tracking
-git config --system rerere.enabled true
+git config --system rerere.enabled false
 git config --system merge.stat true
-git config --system diff.algorithm patience
+
 
 
 # Windows Only
