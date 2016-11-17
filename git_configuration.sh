@@ -41,9 +41,8 @@ git config --system diff.mnemonicprefix true
 git config --system diff.renames copies
 git config --system push.default tracking
 git config --system rerere.enabled false
-git config --system merge.stat true
+git config --system merge.stat false
 git config --system merge.renamelimit 99999 
-
 
 
 # Windows Only
