@@ -18,6 +18,10 @@ git config --system alias.mp "merge -s recursive -X patience -X ignore-all-space
 git config --system alias.mo "merge -s ours"
 git config --system alias.show-hidden "ls-files -v | grep ^[a-z]"
 git config --system alias.gcp "gc --aggressive --prune --force"
+git config --system alias.commend 'commit --amend --no-edit'
+git config --system alias.it \
+'!git init && git commit -m “root” --allow-empty'
+git config --system alias.stsh 'stash --all'
 git config --system core.filemode false
 git config --system color.ui always
 git config --system color.branch always
