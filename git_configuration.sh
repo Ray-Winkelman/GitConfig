@@ -14,6 +14,8 @@ git config --system alias.ch "checkout -f"
 git config --system alias.cha "checkout -f -- ."
 git config --system alias.pr "pull --rebase"
 git config --system alias.cp "cherry-pick"
+git config --system alias.mp "merge -s recursive -X patience -X ignore-all-space -X diff-algorithm=patience -X find-renames"
+git config --system alias.mo "merge -s ours"
 git config --system alias.show-hidden "ls-files -v | grep ^[a-z]"
 git config --system alias.gcp "gc --aggressive --prune --force"
 git config --system core.filemode false
@@ -36,6 +38,7 @@ git config --system diff.renames copies
 git config --system push.default tracking
 git config --system rerere.enabled false
 git config --system merge.stat true
+git config --system merge.renamelimit 99999 
 
 
 
