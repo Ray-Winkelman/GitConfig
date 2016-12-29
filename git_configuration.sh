@@ -43,7 +43,8 @@ git config --system push.default tracking
 git config --system rerere.enabled false
 git config --system merge.stat false
 git config --system merge.renamelimit 99999 
-
+git config --system http.sslVerify false
+git config --system http.sslCAinfo /bin/curl-ca-bundle.crt
 
 # Windows Only
 git config --global merge.tool p4merge
