@@ -1,7 +1,7 @@
 #!/bin/bash
 
 tput rmam
-git config --global user.email "rwinkelman@beyondtrust.com"
+git config --global user.email "raywinkelman@gmail.com"
 git config --global user.name "Ray Winkelman"
 git config --system alias.l "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 git config --system alias.a "add"
