@@ -34,6 +34,7 @@ git config --system color.decorate always
 git config --system color.showbranch always
 git config --system core.preloadindex true
 git config --system core.ignorecase false
+git config --global core.safecrlf false
 git config --system advice.pushNonFastForward false
 git config --system advice.statusHints false
 git config --system diff.algorithm patience
