@@ -7,7 +7,9 @@ git config --system alias.l "log --color --graph --pretty=format:'%Cred%h%Creset
 git config --system alias.a "add"
 git config --system alias.aa "add --all"
 git config --system alias.cm "commit -m"
-git config --system alias.cam "commit -am"
+git config --system alias.cam \
+'!git add --all && git commit -m'
+git config --system alias.rewind "reset --hard HEAD~1"
 git config --system alias.st "status -s -b -uall"
 git config --system alias.cl "clean -dfx"
 git config --system alias.ch "checkout -f"
