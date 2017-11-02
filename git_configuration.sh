@@ -24,6 +24,16 @@ git config --global alias.commend 'commit --amend --no-edit'
 git config --global alias.it \
 '!git init && git commit -m "root" --allow-empty'
 git config --global alias.stsh 'stash --all'
+git config --global alias.syncup '!f() { \
+    read -p "Hard reset the current branch to origin/$(git branchname)? (y/n) " yn
+    case $yn in
+        [Yy]* ) git reset --hard origin/$(git branchname);;
+    esac }; f'
+git config --global alias.rs "reset --soft"
+git config --global alias.rh "reset --hard"
+git config --global alias.difc "diff --cached"
+git config --global alias.hd "rev-parse --short HEAD"
+git config --global alias.bn "rev-parse --abbrev-ref HEAD"
 git config --global core.filemode false
 git config --global color.ui always
 git config --global color.branch always
@@ -49,13 +59,5 @@ git config --global merge.renamelimit 999
 git config --global http.sslVerify false
 git config --global http.sslCAinfo /bin/curl-ca-bundle.crt
 
-# Windows Only
-git config --global merge.tool p4merge
-git config --global mergetool.p4merge.path C:/Program Files/Perforce/p4merge.exe
-git config --global mergetool.p4merge.cmd '"C:/Program Files/Perforce/p4merge.exe" "$BASE" "$LOCAL" "$REMOTE" "$MERGED"'
-git config --global mergetool.p4merge.trustExitCode false
-git config --global mergetool.p4merge.keepTemporaries false
-git config --global mergetool.p4merge.keepBackup false
-
-# Repo Specific
+# Repo Specific (For Hooks)
 #git update-index --assume-unchanged file.ext
