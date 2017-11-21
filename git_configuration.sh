@@ -60,6 +60,6 @@ git config --global merge.renamelimit 999
 git config --global http.sslVerify false
 git config --global http.sslCAinfo /bin/curl-ca-bundle.crt
 git config --global credential.helper cache
-
-# Repo Specific (For Hooks)
-#git update-index --assume-unchanged file.ext
+git config merge.tool meld
+git config merge.conflictstyle diff3
+git config mergetool.prompt false
