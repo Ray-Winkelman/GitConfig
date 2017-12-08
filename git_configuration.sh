@@ -1,11 +1,14 @@
 #!/bin/bash
 
-tput rmam
+### --- User --- ###
 git config --global user.email "raywinkelman@gmail.com"
 git config --global user.name "Ray Winkelman"
+
+### --- Aliases --- ###
 git config --global alias.l "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 git config --global alias.a "add"
 git config --global alias.aa "add --all"
+git config --global alias.branchname "rev-parse --abbrev-ref HEAD"
 git config --global alias.cm "commit -m"
 git config --global alias.cam \
 '!git add --all && git commit -m'
@@ -26,16 +29,23 @@ git config --global alias.it \
 '!git init && git commit -m "root" --allow-empty'
 git config --global alias.stsh 'stash --all'
 git config --global alias.syncup '!f() { \
-    read -p "Hard reset the current branch to origin/$(git branchname)? (y/n) " yn
+    read -p "Hard reset the current branch to origin/$(git rev-parse --abbrev-ref HEAD)? (y/n) " yn
     case $yn in
-        [Yy]* ) git reset --hard origin/$(git branchname);;
+        [Yy]* ) git reset --hard origin/$(git git rev-parse --abbrev-ref HEAD);;
     esac }; f'
 git config --global alias.rs "reset --soft"
 git config --global alias.rh "reset --hard"
 git config --global alias.difc "diff --cached"
 git config --global alias.hd "rev-parse --short HEAD"
 git config --global alias.bn "rev-parse --abbrev-ref HEAD"
+
+### --- Core --- ###
 git config --global core.filemode false
+git config --global core.preloadindex true
+git config --global core.ignorecase false
+git config --global core.safecrlf false
+
+### --- UI --- ###
 git config --global color.ui always
 git config --global color.branch always
 git config --global color.diff always
@@ -45,21 +55,56 @@ git config --global color.grep always
 git config --global color.pager true
 git config --global color.decorate always
 git config --global color.showbranch always
-git config --global core.preloadindex true
-git config --global core.ignorecase false
-git config --global core.safecrlf false
+
+### --- Promptings --- ###
 git config --global advice.pushNonFastForward false
 git config --global advice.statusHints false
+
+### --- Diffs --- ###
 git config --global diff.algorithm patience
 git config --global diff.mnemonicprefix true
 git config --global diff.renames copies
+
+### --- Push --- ###
 git config --global push.default tracking
+
+### --- Rerere --- ###
 git config --global rerere.enabled false
+
+### --- Merge --- ###
 git config --global merge.stat false
-git config --global merge.renamelimit 999
-git config --global http.sslVerify false
-git config --global http.sslCAinfo /bin/curl-ca-bundle.crt
-git config --global credential.helper cache
-git config merge.tool meld
-git config merge.conflictstyle diff3
-git config mergetool.prompt false
+git config --global merge.renamelimit 0
+git config --global merge.conflictstyle diff3
+
+
+mergetool() {
+    git config --global merge.tool meld
+    git config --global mergetool.meld.keepTemporaries false
+    git config --global mergetool.meld.keepBackup false
+    git config --global mergetool.prompt false
+}
+
+gnomeKeyring() {
+   sudo echo "Thanks, sudo."
+   cd /usr/share/git/credential/gnome-keyring
+   make
+   git config --global credential.helper /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring
+}
+
+echo -e "Have you installed the Meld mergetool?"
+select YN in "Yes" "No"; do
+    case $YN in
+        Yes ) mergetool; break;;
+        No ) break;;
+    esac
+done
+
+echo -e "LINUX ONLY: Have you installed libgnome-keyring?"
+select YN in "Yes" "No"; do
+    case $YN in
+        Yes ) gnomeKeyring; break;;
+        No ) break;;
+    esac
+done
+
+echo "Git is configured."
