@@ -19,14 +19,14 @@ git config --global alias.ch "checkout -f"
 git config --global alias.cha "checkout -f -- ."
 git config --global alias.pr "pull --rebase"
 git config --global alias.cp "cherry-pick"
-git config --global alias.s "merge -Xpatience -Xdiff-algorithm=patience -Xfind-renames -Xignore-space-change --squash"
+git config --global alias.ms "merge -Xpatience -Xdiff-algorithm=patience -Xfind-renames -Xignore-space-change --squash"
 git config --global alias.mp "merge -Xpatience -Xdiff-algorithm=patience -Xfind-renames -Xignore-space-change"
 git config --global alias.mo "merge -s ours"
 git config --global alias.show-hidden "ls-files -v | grep ^[a-z]"
 git config --global alias.gcp "gc --aggressive --prune --force"
 git config --global alias.commend 'commit --amend --no-edit'
 git config --global alias.it \
-'!git init && git commit -m "root" --allow-empty'
+'!git init && git commit -m "I am Software." --allow-empty'
 git config --global alias.stsh 'stash --all'
 git config --global alias.syncup '!f() { \
     read -p "Hard reset the current branch to origin/$(git rev-parse --abbrev-ref HEAD)? (y/n) " yn
@@ -38,6 +38,9 @@ git config --global alias.rh "reset --hard"
 git config --global alias.difc "diff --cached"
 git config --global alias.hd "rev-parse --short HEAD"
 git config --global alias.bn "rev-parse --abbrev-ref HEAD"
+git config --global alias.dif '!f() { \
+                               git diff -b --patience $1~1...HEAD -- $2
+                             }; f'
 
 ### --- Core --- ###
 git config --global core.filemode false
