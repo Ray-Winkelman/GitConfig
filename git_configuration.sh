@@ -90,7 +90,7 @@ mergetool() {
 gnomeKeyring() {
    sudo echo "Thanks, sudo."
    cd /usr/share/git/credential/gnome-keyring
-   make
+   sudo make
    git config --global credential.helper /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring
 }
 
