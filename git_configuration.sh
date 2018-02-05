@@ -31,7 +31,7 @@ git config --global alias.stsh 'stash --all'
 git config --global alias.syncup '!f() { \
     read -p "Hard reset the current branch to origin/$(git rev-parse --abbrev-ref HEAD)? (y/n) " yn
     case $yn in
-        [Yy]* ) git reset --hard origin/$(git git rev-parse --abbrev-ref HEAD);;
+        [Yy]* ) git reset --hard origin/$(git rev-parse --abbrev-ref HEAD);;
     esac }; f'
 git config --global alias.rs "reset --soft"
 git config --global alias.rh "reset --hard"
