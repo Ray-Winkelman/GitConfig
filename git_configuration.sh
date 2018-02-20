@@ -41,7 +41,16 @@ git config --global alias.bn "rev-parse --abbrev-ref HEAD"
 git config --global alias.dif '!f() { \
                                git diff -b --patience $1~1...HEAD -- $2
                              }; f'
-
+git config --global alias.effort '!f() { \
+                                 git ls-files |
+                                 while read aa
+                                 do
+                                   set $(git log --follow --oneline "$aa" | wc)
+                                   printf "%s\t%s\n" $1 "$aa"
+                                 done > bb
+                                 sort -nr bb | head $1
+                                 rm bb 
+                             }; f'
 ### --- Core --- ###
 git config --global core.filemode false
 git config --global core.preloadindex true
