@@ -51,6 +51,10 @@ git config --global alias.effort '!f() { \
                                  sort -nr bb | head $1
                                  rm bb 
                              }; f'
+git config --global alias.firstpush '!f() { \
+				git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
+                             }; f'
+
 ### --- Core --- ###
 git config --global core.filemode false
 git config --global core.preloadindex true
