@@ -22,6 +22,7 @@ git config --global alias.cp "cherry-pick"
 git config --global alias.ms "merge -Xpatience -Xdiff-algorithm=patience -Xfind-renames -Xignore-space-change --squash"
 git config --global alias.mp "merge -Xpatience -Xdiff-algorithm=patience -Xfind-renames -Xignore-space-change"
 git config --global alias.mo "merge -s ours"
+git config --global alias.mt "merge -X theirs"
 git config --global alias.show-hidden "ls-files -v | grep ^[a-z]"
 git config --global alias.gcp "gc --aggressive --prune --force"
 git config --global alias.commend 'commit --amend --no-edit'
