@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [[ $(git l -1) != *"v2."* ]]; then
+	echo "Versioning!"
+
+	sed -i 's/"version".*/"version": 2.'$(git rev-list --count master)'/g' version.json
+	git a version.json
+	git cm "v2.$(git rev-list --count master)"
+fi
+echo "Done versioning hook."
+
+exit 0
