@@ -11,7 +11,7 @@ git config --global alias.aa "add --all"
 git config --global alias.branchname "rev-parse --abbrev-ref HEAD"
 git config --global alias.cm "commit -m"
 git config --global alias.cam \
-'!git diff -w --no-color | git apply --cached --ignore-whitespace && git checkout -- . && git reset && git add -p && git commit -m'
+'!git diff -w --no-color | git apply --cached --ignore-whitespace && git checkout -- . && git reset && git add && git commit -m'
 git config --global alias.rewind "reset --hard HEAD~1"
 git config --global alias.st "status -s -b -uall"
 git config --global alias.cl "clean -dfx"
