@@ -11,7 +11,7 @@ git config --global alias.aa "add --all"
 git config --global alias.branchname "rev-parse --abbrev-ref HEAD"
 git config --global alias.cm "commit -m"
 git config --global alias.cam \
-'!git diff -w --no-color | git apply --cached --ignore-whitespace && git checkout -- . && git reset && git add && git commit -m'
+'!git diff -w --no-color | git apply --cached --ignore-whitespace && git checkout -- . && git reset && git add --all && git commit -m'
 git config --global alias.rewind "reset --hard HEAD~1"
 git config --global alias.st "status -s -b -uall"
 git config --global alias.cl "clean -dfx"
@@ -123,5 +123,9 @@ select YN in "Yes" "No"; do
         No ) break;;
     esac
 done
+
+#TODO
+#git config --global merge.tool meld
+#git config --global mergetool.meld.path "C:\Program Files (x86)\Meld\Meld.exe"
 
 echo "Git is configured."
