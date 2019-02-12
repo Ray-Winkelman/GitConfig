@@ -55,7 +55,13 @@ git config --global alias.effort '!f() { \
 git config --global alias.firstpush '!f() { \
 				git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
                              }; f'
-
+git config --global alias.prunebranches '!f() { \
+				git fetch -p
+				for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`
+				do 
+					git branch -D $branch
+				done
+                             }; f'
 ### --- Core --- ###
 git config --global core.filemode false
 git config --global core.preloadindex true
