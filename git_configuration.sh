@@ -62,7 +62,7 @@ git config --global alias.pbranches '!f() { \
 				git fetch -p
 				for branch in `git branch -vv | grep ": gone]" | awk '\''BEGIN { FS="[ ]" } ; { print $3 }'\''`
 				do 
-					echo "Deleting: ${$branch}"
+					echo "Deleting: ${branch}"
 					git branch -D $branch
 				done
                              }; f'
