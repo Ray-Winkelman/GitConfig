@@ -5,6 +5,9 @@ git config --global user.email "raywinkelman@gmail.com"
 git config --global user.name "Ray Winkelman"
 
 ### --- Aliases --- ###
+git config --global alias.bl "branch -l"
+git config --global alias.br "branch -r"
+git config --global alias.ba "branch -lr"
 git config --global alias.l "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 git config --global alias.a "add"
 git config --global alias.aa "add --all"
@@ -57,8 +60,9 @@ git config --global alias.firstpush '!f() { \
                              }; f'
 git config --global alias.pbranches '!f() { \
 				git fetch -p
-				for branch in `git branch -vv | grep ": gone]" | awk "{print $1}"`
+				for branch in `git branch -vv | grep ": gone]" | awk '\''BEGIN { FS="[ ]" } ; { print $3 }'\''`
 				do 
+					echo "Deleting: ${$branch}"
 					git branch -D $branch
 				done
                              }; f'
