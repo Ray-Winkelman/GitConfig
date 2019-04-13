@@ -62,8 +62,8 @@ git config --global alias.pbranches '!f() { \
 				git fetch -p
 				for branch in `git branch -vv | grep ": gone]" | awk '\''BEGIN { FS="[ ]" } ; { print $3 }'\''`
 				do 
-					echo "Deleting: ${branch}"
-					git branch -D $branch
+					BRANCH_NO_WHITESPACE="$(sed '\''s,\x1B\[[0-9;]*[a-zA-Z],,g'\'' <<<$branch)"
+					git branch -D $BRANCH_NO_WHITESPACE
 				done
                              }; f'
 ### --- Core --- ###
