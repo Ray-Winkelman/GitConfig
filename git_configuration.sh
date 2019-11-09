@@ -2,7 +2,7 @@
 
 ### --- User --- ###
 git config --global user.email "raywinkelman@gmail.com"
-git config --global user.name "Ray Winkelman"
+git config --global user.name "Ray"
 
 ### --- Aliases --- ###
 git config --global alias.authors "shortlog -s -n --no-merges"
