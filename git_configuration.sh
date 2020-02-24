@@ -54,7 +54,7 @@ git config --global alias.effort '!f() { \
                                    printf "%s\t%s\n" $1 "$aa"
                                  done > bb
                                  sort -nr bb | head $1
-                                 rm bb 
+                                 rm bb
                              }; f'
 git config --global alias.firstpush '!f() { \
 				git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
@@ -62,7 +62,7 @@ git config --global alias.firstpush '!f() { \
 git config --global alias.pbranches '!f() { \
 				git fetch -p
 				for branch in `git branch -vv | grep ": gone]" | awk '\''BEGIN { FS="[ ]" } ; { print $3 }'\''`
-				do 
+				do
 					BRANCH_NO_WHITESPACE="$(sed '\''s,\x1B\[[0-9;]*[a-zA-Z],,g'\'' <<<$branch)"
 					git branch -D $BRANCH_NO_WHITESPACE
 				done
@@ -106,7 +106,7 @@ git config --global merge.conflictstyle diff3
 
 
 mergetool() {
-    git config --global merge.tool meld
+    git config --global merge.tool "C:\Program Files (x86)\Meld\Meld.exe"
     git config --global mergetool.meld.keepTemporaries false
     git config --global mergetool.meld.keepBackup false
     git config --global mergetool.prompt false
