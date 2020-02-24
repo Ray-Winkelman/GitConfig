@@ -106,9 +106,10 @@ git config --global merge.conflictstyle diff3
 
 
 mergetool() {
-    git config --global merge.tool "C:\Program Files (x86)\Meld\Meld.exe"
+    git config --global merge.tool meld
     git config --global mergetool.meld.keepTemporaries false
     git config --global mergetool.meld.keepBackup false
+    git config --global mergetool.meld.path "C:\Program Files (x86)\Meld\Meld.exe"
     git config --global mergetool.prompt false
 }
 
