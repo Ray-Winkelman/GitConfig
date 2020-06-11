@@ -2,7 +2,7 @@
 
 ### --- User --- ###
 git config --global user.email "raywinkelman@gmail.com"
-git config --global user.name "Ray"
+git config --global user.name "Ray Winkelman"
 
 ### --- Aliases --- ###
 git config --global alias.authors "shortlog -s -n --no-merges"
@@ -137,7 +137,7 @@ select YN in "Yes" "No"; do
 done
 
 #TODO
-#git config --global merge.tool meld
-#git config --global mergetool.meld.path "C:\Program Files (x86)\Meld\Meld.exe"
+git config --global merge.tool meld
+git config --global mergetool.meld.path "C:\Program Files (x86)\Meld\Meld.exe"
 
 echo "Git is configured."
